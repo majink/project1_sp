@@ -19,7 +19,7 @@ public class WordCRUD implements ICRUD{
         System.out.print("=> 난이도(1, 2, 3) & 새 단어 입력 : ");
         int level = sc.nextInt();
         String word = sc.nextLine();
-        //엔터를 실수로 입력했을 상황
+        //엔터를 실수로 입력했을 상황, 영어가 아닐 시에 예외 처리 해야하지 않나?
         if(word == ""){
             System.out.println("단어를 다시 입력해주세요.");
             word = sc.nextLine();
@@ -54,6 +54,10 @@ public class WordCRUD implements ICRUD{
     }
 
     public void listAll(){
+        if (list.isEmpty()){
+            System.out.println("현재 추가된 단어가 없습니다! 단어장에 단어를 추가해주세요.");
+        }
+
         System.out.println("--------------------------------");
         for(int i=0 ; i<list.size() ; i++){
             System.out.print((i+1) +" ");
