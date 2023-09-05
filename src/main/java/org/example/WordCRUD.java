@@ -19,6 +19,11 @@ public class WordCRUD implements ICRUD{
         System.out.print("=> 난이도(1, 2, 3) & 새 단어 입력 : ");
         int level = sc.nextInt();
         String word = sc.nextLine();
+        //엔터를 실수로 입력했을 상황
+        if(word == ""){
+            System.out.println("단어를 다시 입력해주세요.");
+            word = sc.nextLine();
+        }
 
         System.out.print("뜻 입력 : ");
         String meaning = sc.nextLine();
@@ -30,7 +35,7 @@ public class WordCRUD implements ICRUD{
         //사용자에게 입력받은 WORD를 LIST에 추가하는 함수
         Word one = (Word)add();
         list.add(one);
-        System.out.println("새 단어가 단어장에 추가되었습니다. ");
+        System.out.println("새 단어가 단어장에 추가되었습니다 !!! ");
     }
 
     @Override

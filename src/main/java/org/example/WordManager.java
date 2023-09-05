@@ -39,7 +39,7 @@ public class WordManager {
 
             switch (menu) {
                 case 1 -> {
-                 wordCRUD.listAll();
+                    wordCRUD.listAll();
                 }
                 //list = 모든 단어 보기 함수 호출
                 case 2 -> {
@@ -50,7 +50,7 @@ public class WordManager {
                 //search = 단어 검색 함수 호출
                 case 4 ->
                     //add = 단어 추가 함수 호출
-                        wordCRUD.addWord();
+                    wordCRUD.addWord();
                 case 5 -> {
                 }
                 //update = 단어 수정 함수 호출
