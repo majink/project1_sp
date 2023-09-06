@@ -52,6 +52,7 @@ public class WordManager {
                     //add = 단어 추가 함수 호출
                     wordCRUD.addWord();
                 case 5 -> {
+                    wordCRUD.updateItem();
                 }
                 //update = 단어 수정 함수 호출
                 case 6 -> {
