@@ -56,6 +56,7 @@ public class WordManager {
                 }
                 //update = 단어 수정 함수 호출
                 case 6 -> {
+                    wordCRUD.deleteItem();
                 }
                 //delete = 단어 삭제 함수 호출
                 case 7 -> {
