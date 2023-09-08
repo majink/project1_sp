@@ -88,6 +88,21 @@ public class WordCRUD implements ICRUD{
         return idlist;
     }
 
+    public void listAll(int level){
+        if (list.isEmpty()){
+            System.out.println("현재 추가된 단어가 없습니다! 단어장에 단어를 추가해주세요.");
+        }
+
+        System.out.println("--------------------------------");
+        for(int i=0 ; i<list.size() ; i++){
+            if(list.get(i).level == level) {
+                System.out.print((i + 1) + " ");
+                System.out.println(list.get(i).toString());
+            }
+        }
+        System.out.println("--------------------------------");
+    }
+
     public void updateItem() {
         System.out.println("=> 수정할 단어 검색 : ");
         String keyword = sc.next();
@@ -121,5 +136,12 @@ public class WordCRUD implements ICRUD{
         }
         else
             System.out.println("취소되었습니다. ");
+    }
+
+    public void levellist() {
+        //수준별 단어 보기 함수 출력
+        System.out.println("=>단어의 수준을 숫자로 입력해주세요. 난이도(1, 2, 3) ");
+        int level = sc.nextInt();
+        this.listAll(level);
     }
 }

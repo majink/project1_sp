@@ -39,12 +39,13 @@ public class WordManager {
 
             switch (menu) {
                 case 1 -> {
+                    //모든 단어 보기 함수 호출
                     wordCRUD.listAll();
                 }
-                //list = 모든 단어 보기 함수 호출
                 case 2 -> {
+                    //수분별 단어 보기 함수 호출
+                    wordCRUD.levellist();
                 }
-                //list = 수분별 단어 보기 함수 호출
                 case 3 -> {
                 }
                 //search = 단어 검색 함수 호출
@@ -52,16 +53,16 @@ public class WordManager {
                     //add = 단어 추가 함수 호출
                     wordCRUD.addWord();
                 case 5 -> {
+                    //update = 단어 수정 함수 호출
                     wordCRUD.updateItem();
                 }
-                //update = 단어 수정 함수 호출
                 case 6 -> {
+                    //delete = 단어 삭제 함수 호출
                     wordCRUD.deleteItem();
                 }
-                //delete = 단어 삭제 함수 호출
                 case 7 -> {
+                    //save = 파일 저장
                 }
-                //save = 파일 저장
                 default -> {
                     System.out.println("메뉴의 숫자들만 입력해주세요.");
                 }
