@@ -1,4 +1,4 @@
-# project1_sp
+# 22100228_김하진_project1
 
 1. CREATE - 단어 추가 기능 실행화면
    
