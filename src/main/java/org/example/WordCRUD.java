@@ -144,4 +144,18 @@ public class WordCRUD implements ICRUD{
         int level = sc.nextInt();
         this.listAll(level);
     }
+
+    public void search() {
+        System.out.print("=> 검색할 단어 입력 : ");
+        String sword = sc.next();
+
+        System.out.println("--------------------------------");
+        for(int i=0 ; i<list.size() ; i++){
+            String word = list.get(i).getWord();
+            if(!word.contains(sword)) continue;
+            System.out.print((i+1) +" ");
+            System.out.println(list.get(i).toString() );
+        }
+        System.out.println("--------------------------------");
+    }
 }

@@ -47,8 +47,9 @@ public class WordManager {
                     wordCRUD.levellist();
                 }
                 case 3 -> {
+                    //search = 단어 검색 함수 호출
+                    wordCRUD.search();
                 }
-                //search = 단어 검색 함수 호출
                 case 4 ->
                     //add = 단어 추가 함수 호출
                     wordCRUD.addWord();
