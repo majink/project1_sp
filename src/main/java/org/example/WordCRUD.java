@@ -1,5 +1,5 @@
 package org.example;
-
+import java.io.*;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -140,7 +140,7 @@ public class WordCRUD implements ICRUD{
 
     public void levellist() {
         //수준별 단어 보기 함수 출력
-        System.out.println("=>단어의 수준을 숫자로 입력해주세요. 난이도(1, 2, 3) ");
+        System.out.println("=>단어의 난이도를 숫자로 입력해주세요. 난이도(1, 2, 3) ");
         int level = sc.nextInt();
         this.listAll(level);
     }
@@ -158,4 +158,19 @@ public class WordCRUD implements ICRUD{
         }
         System.out.println("--------------------------------");
     }
+
+    public void saveFile() throws IOException {
+        Writer file = new FileWriter("ouput.txt");
+
+        for(int i =0 ; i<list.size() ; i++ ){
+            file.write( list.get(i).toString() + '\n' );
+        }
+
+        file.close();
+        System.out.println("=>파일 저장이 완료되었습니다!");
+
+    }
 }
+
+
+

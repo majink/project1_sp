@@ -1,4 +1,6 @@
 package org.example;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Scanner;
 
 //wordCRUD를 이용해서 전체 관리를 하는 역할을 수행
@@ -28,7 +30,9 @@ public class WordManager {
 
     }
 
-    public void start() {
+    public void start() throws IOException {
+
+        //파일 읽어오기 (DB 사용해서 엑셀파일 읽어오기 한번 해보면 좋을 듯?)
 
         while (true) {
             int menu = selectMenu();
@@ -62,6 +66,7 @@ public class WordManager {
                     wordCRUD.deleteItem();
                 }
                 case 7 -> {
+                    wordCRUD.saveFile();
                     //save = 파일 저장
                 }
                 default -> {
