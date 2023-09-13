@@ -6,4 +6,7 @@ public interface ICRUD {
     public int delete(Object obj);
     public void selectOne(int id);
     //데이터 한개를 조회할 때 쓰는 것.
+    public void deleteItem();
+    public void levellist();
+    public void search();
 }

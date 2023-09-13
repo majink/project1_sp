@@ -33,6 +33,7 @@ public class WordManager {
     public void start() throws IOException {
 
         //파일 읽어오기 (DB 사용해서 엑셀파일 읽어오기 한번 해보면 좋을 듯?)
+        wordCRUD.loadFile();
 
         while (true) {
             int menu = selectMenu();

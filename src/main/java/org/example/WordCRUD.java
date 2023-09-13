@@ -8,6 +8,7 @@ import java.util.Scanner;
 public class WordCRUD implements ICRUD{
     ArrayList<Word> list;
     Scanner sc;
+    final String fname = "Dictionary.txt";
 
     WordCRUD(Scanner sc){
         list = new ArrayList<>();
@@ -163,12 +164,33 @@ public class WordCRUD implements ICRUD{
         Writer file = new FileWriter("ouput.txt");
 
         for(int i =0 ; i<list.size() ; i++ ){
-            file.write( list.get(i).toString() + '\n' );
+            file.write( list.get(i).toFileString() + '\n' );
         }
 
         file.close();
         System.out.println("=>파일 저장이 완료되었습니다!");
 
+    }
+
+    public void loadFile() throws IOException {
+
+        BufferedReader fr = new BufferedReader(new FileReader(fname));
+        String line;
+        int count = 0;
+
+        while (true){
+            line = fr.readLine();
+            if(line==null) break;
+
+            String data[]=line.split("\\|");
+            int level = Integer.parseInt(data[0]);
+            String word = data[1];
+            String meaning = data[2];
+            list.add(new Word(count,level,word,meaning));
+        }
+
+        fr.close();
+        System.out.println("==>"+ count + "개 로딩 완료!");
     }
 }
 
