@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class WordCRUD implements ICRUD{
     ArrayList<Word> list;
     Scanner sc;
-    final String fname = "Dictionary.txt";
+    final String fname = "input.txt";
 
     WordCRUD(Scanner sc){
         list = new ArrayList<>();
@@ -32,13 +32,6 @@ public class WordCRUD implements ICRUD{
         return new Word(0, level , word, meaning);
     }
 
-    public void addWord(){
-        //사용자에게 입력받은 WORD를 LIST에 추가하는 함수
-        Word one = (Word)add();
-        list.add(one);
-        System.out.println("새 단어가 단어장에 추가되었습니다 !!! ");
-    }
-
     @Override
     public int update(Object obj) {
         return 0;
@@ -52,6 +45,13 @@ public class WordCRUD implements ICRUD{
     @Override
     public void selectOne(int id) {
 
+    }
+
+    public void addWord(){
+        //사용자에게 입력받은 WORD를 LIST에 추가하는 함수
+        Word one = (Word)add();
+        list.add(one);
+        System.out.println("새 단어가 단어장에 추가되었습니다 !!! ");
     }
 
     public void listAll(){
@@ -117,7 +117,7 @@ public class WordCRUD implements ICRUD{
         String meaning = sc.nextLine();
         Word word = list.get(idlist.get(id-1));
         word.setMeaning(meaning);
-        System.out.println("단어가 수정되었습니다. ");
+        System.out.println("단어가 수정 성공적으로 되었습니다!! ");
     }
 
     public void deleteItem() {
@@ -132,7 +132,7 @@ public class WordCRUD implements ICRUD{
         System.out.print("=> 정말로 삭제하실래요?(Y/n) ");
         String ans = sc.next();
         if(ans.equalsIgnoreCase("y")){
-            list.remove(idlist.get(id-1));
+            list.remove(id-1);
             System.out.println("단어가 삭제되었습니다. ");
         }
         else
@@ -168,7 +168,7 @@ public class WordCRUD implements ICRUD{
         }
 
         file.close();
-        System.out.println("=>파일 저장이 완료되었습니다!");
+        System.out.println("=>파일 저장이 완료 !!!");
 
     }
 
@@ -182,7 +182,7 @@ public class WordCRUD implements ICRUD{
             line = fr.readLine();
             if(line==null) break;
 
-            String data[]=line.split("\\|");
+            String[] data =line.split("\\|");
             int level = Integer.parseInt(data[0]);
             String word = data[1];
             String meaning = data[2];
